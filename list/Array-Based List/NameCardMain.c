@@ -101,7 +101,8 @@ int main(void)
 	{
 		if(!NameCompare(pcard,SearchN))
 		{
-			LRemove(&list);
+			pcard=LRemove(&list);
+			free(pcard);
 			puts("Remove Succeed!");
 		}
 		else
@@ -110,7 +111,8 @@ int main(void)
 			{
 				if(!NameCompare(pcard,SearchN))
 				{
-					LRemove(&list);
+					pcard=LRemove(&list);
+					free(pcard);
 					puts("Remove Succeed!");
 				}
 			}

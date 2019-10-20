@@ -23,7 +23,7 @@ typedef struct _linkedList
 
 typedef LinkedList List;
 
-void SetSortRule(List *plist, int (*comp)(LData d1,LData d2);
+void SetSortRule(List *plist, int (*comp)(LData d1,LData d2));
 
 // others are same with the array List
 

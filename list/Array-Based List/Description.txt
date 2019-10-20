@@ -1,0 +1,8 @@
+  Make a program that
+	1: get the data from the user, and save the data in the list
+	2: search the name and show the phone number
+	3: search the name and change the phone number
+	4: search the name and delete the data from list
+	5: print all the phone number saved in the list	
+  
+  If you want to change this to more user friendly use case for my code

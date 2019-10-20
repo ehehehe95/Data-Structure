@@ -1,2 +1,2 @@
 # Data-Structure
-studying data structure suing C
+studying data structure using C

@@ -15,15 +15,63 @@ void ListInit(List * plist)
 
 void Linsert(List *plist, LData data)	//save the data in the list
 {
+	if(plist->comp==NULL)
+	{
+		Node *newNode=(Node*)malloc(sizeof(Node));
+		newNode->data=data;
+		newNode->next=plist->head->next;
+		plist->head->next=newNode;
 
-	plist->head->next=(Node *)(malloc(sizeof(Node)));
-	plist->
+		(plist->numOfData)++;
+	}
+	else
+	{
+		/// not decided yet
+	}
+}
 
-int LFirst(List *plist, LData *pdata);	//save the fist data in the list to the pdata, if suceed return 1, else return 0
-int LNext(List *plist, LData *pdata);	//save the next data in the list to the pdata, if suceed return 1, else return 0
 
-LData LRemove(List *plist);				//erase the data from the list and return
-int LCount(List *plist);				//return the number of the data saved in the list
+int LFirst(List *plist, LData *pdata)	//save the fist data in the list to the pdata, if suceed return 1, else return 0
+{
+	if(plist->head->next==NULL)
+		return FALSE;
 
-void SetSortRule(List *plist, int (*comp)(LData d1,LData d2));
+	plist->before=plist->head;
+	plist->cur=plist->head->next;
 
+	*pdata=plist->cur->data;
+	return TRUE;
+}
+
+int LNext(List *plist, LData *pdata)	//save the next data in the list to the pdata, if suceed return 1, else return 0
+{
+	if(plist->cur->next==NULL)
+		return FALSE;
+
+	plist->before=plist->cur;
+	plist->cur=plist->cur->next;
+
+	*pdata=plist->cur->data;
+	return TRUE;
+}
+
+LData LRemove(List *plist)				//erase the data in the current read position at the list and return
+{
+	LData Rdata=plist->cur->data;
+
+	plist->before->next=plist->cur->next;
+	free(plist->cur);
+	plist->cur=plist->before; //cur position and before position points the same position so successive call is not allowed
+
+	(plist->numOfData)--;
+	return Rdata;
+}
+
+int LCount(List *plist)				//return the number of the data saved in the list
+{
+	return plist->numOfData;
+}
+void SetSortRule(List *plist, int (*comp)(LData d1,LData d2))
+{
+	// not decided yet
+}

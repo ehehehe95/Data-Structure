@@ -26,7 +26,26 @@ void Linsert(List *plist, LData data)	//save the data in the list
 	}
 	else
 	{
-		/// not decided yet
+		Node *newNode=(Node*)malloc(sizeof(Node));
+		newNode->data=data;
+
+		plist->cur=plist->head;
+
+		// compare function returns 0 if inserting data succeed, return 1 if preced
+
+		while(plist->cur->next !=NULL && plist->comp(data,plist->cur->next->data) !=0)
+		{			
+
+			plist->cur=plist->cur->next;
+
+		}
+		
+		newNode->next=plist->cur->next;
+		plist->cur->next=newNode;
+
+		plist->numOfData++;
+			
+		
 	}
 }
 
@@ -73,5 +92,5 @@ int LCount(List *plist)				//return the number of the data saved in the list
 }
 void SetSortRule(List *plist, int (*comp)(LData d1,LData d2))
 {
-	// not decided yet
+	plist->comp=comp;
 }

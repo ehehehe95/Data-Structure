@@ -1,7 +1,7 @@
 #ifndef __D_LINKED_LIST_H__
 #define __D_LINKED LIST_H__
 
-#define TURE		1
+#define TRUE		1
 #define FALSE		0
 
 typedef int LData;

@@ -5,7 +5,8 @@
 #define TRUE	1
 #define FALSE	0
 
-typedef *Company Data;
+
+typedef Company * Data;
 
 typedef struct _node
 {

@@ -4,14 +4,16 @@
 #define NAME_LEN	30
 #define MEM_LEN		30
 
-typedef struct _company
+typedef struct __company
 {
 	char name[NAME_LEN]; //  the name of the company
-	char mem1[MEM_LEN], mem2[MEM_LEN];// member of the company
+	char mem1[MEM_LEN];
+	char mem2[MEM_LEN];// member of the company
 
 } Company;
 
-Company* MakeCompany(char *name, char *mem1, char *mem2)
+Company* MakeCompany(char *name, char *mem1, char *mem2);
+void ShowCompanyStatus(Company *pcom);
 
 //void ShowCompanyStatus(Company *pcom);
 

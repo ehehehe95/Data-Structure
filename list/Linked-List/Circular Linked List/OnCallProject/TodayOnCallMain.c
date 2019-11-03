@@ -1,4 +1,5 @@
 #include <stdio.h>
+#pragma warning(disable:4996)
 #include "CLinkedList.h"
 #include "Company.h"
 #include <time.h>
@@ -23,6 +24,7 @@ int main(void)
 		gets(InputM1);
 		if(InputM1[0]==NULL)
 			break;
+		puts("input scond member's name");
 		gets(InputM2);
 		if(InputM2[0]==NULL)
 			break;
@@ -31,3 +33,4 @@ int main(void)
 		
 		LInsert(&list,pcom);
 	}
+}

@@ -23,8 +23,8 @@ typedef struct _CLL
 typedef CList List;
 
 void ListInit(List * plist);
-void Linsert(List *plist, Data data); //save the data in the tail
-void LinsertFront(List *plist,Data data);
+void LInsert(List *plist, Data data); //save the data in the tail
+void LInsertFront(List *plist,Data data);
 
 int LFirst(List *plist, Data *pdata);	
 int LNext(List *plist, Data *pdata);	

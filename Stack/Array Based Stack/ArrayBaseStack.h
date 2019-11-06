@@ -19,7 +19,7 @@ void StackInit(Stack *pstack);
 int SIsEmpty(Stack *pstack);
 
 void SPush(Stack *pstack, Data data);
-Data Spop(Stack *pstack);
-Data Speek(Stack *pstack);
+Data SPop(Stack *pstack);
+Data SPeek(Stack *pstack);
 
 #endif

@@ -9,7 +9,7 @@ void StackInit(Stack *pstack)
 
 int SIsEmpty(Stack *pstack)
 {
-	if(pstack->head=NULL)
+	if(pstack->head==NULL)
 		return TRUE;
 
 	else

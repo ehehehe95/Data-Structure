@@ -26,10 +26,10 @@ int WhoPrec(char op1, char op2)
 	int op1Pr=GetOpPrio(op1);
 	int op2Pr=GetOpPrio(op2);
 
-	if(op1Pr > op2Pr)
+	if(op1Pr > op2Pr)		//op1 has a higher priority
 		return 1;
 
-	else if(op1Pr < op2Pr)
+	else if(op1Pr < op2Pr)	//op2 has a higher priority 
 		return -1;
 
 	else					//if two operator has same priority
@@ -78,3 +78,20 @@ void ConvToRPN(char exp[])
 				break;
 			
 			case '+':	case '-':
+			case '*':	case' /':
+				// if temp has a same or lower priority to the operator in the stack, pop the data until it meets lower priority operator or empty 
+				while(WhoPrec(SPeek(&stack), temp)>=0 && !SIsEmpty)	
+					convExp[idx++]=SPop(&stack);
+
+				SPush(&stack,temp);
+				break;
+			}
+		}
+	}
+
+	while(!SIsEmpty(&stack))
+		convExp[idx++]=SPop(&stack);
+
+	strcpy(exp,convExp);
+	free(convExp);
+}

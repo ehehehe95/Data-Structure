@@ -44,8 +44,7 @@ void ConvToRPN(char exp[])
 	char *convExp=(char*)malloc(expLen+1);
 
 	char temp, popOp;
-	int i;
-	int idx=0;
+	int i, idx=0;
 
 	memset(convExp,0,sizeof(char)*expLen+1);
 	StackInit(&stack);
@@ -77,10 +76,10 @@ void ConvToRPN(char exp[])
 				}
 				break;
 			
-			case '+':	case '-':
-			case '*':	case' /':
+			case '+': case '-':
+			case '*': case' /':
 				// if temp has a same or lower priority to the operator in the stack, pop the data until it meets lower priority operator or empty 
-				while(WhoPrec(SPeek(&stack), temp)>=0 && !SIsEmpty)	
+				while(!SIsEmpty(&stack) && WhoPrec(SPeek(&stack), temp) >=0 )	
 					convExp[idx++]=SPop(&stack);
 
 				SPush(&stack,temp);

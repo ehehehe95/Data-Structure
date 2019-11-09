@@ -31,7 +31,7 @@ int EvalRPNExp(char exp[])
 				break;
 
 			case '-':
-				SPush(&stack, op1-op2);
+				SPush(&stack, op2-op1);
 				break;
 
 			case '*':

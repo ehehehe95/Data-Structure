@@ -19,15 +19,15 @@ void PreorderTraverse(BTreeNode *bt, VisitFuncPtr action)
 		return;
 
 	action(bt->data);
-	InorderTraverse(bt->left, action);
-	InorderTraverse(bt->right, action);
+	PreorderTraverse(bt->left, action);
+	PreorderTraverse(bt->right, action);
 }
 void PostorderTraverse(BTreeNode *bt, VisitFuncPtr action)
 {
 	if(bt==NULL)
 		return;
 
-	InorderTraverse(bt->left, action);
-	InorderTraverse(bt->right, action);
+	PostorderTraverse(bt->left, action);
+	PostorderTraverse(bt->right, action);
 	action(bt->data);
 }

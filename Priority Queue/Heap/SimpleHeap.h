@@ -9,11 +9,6 @@
 typedef char HData;
 typedef int Priority;
 
-typedef struct _HeapElem
-{
-	Priority pr;
-	HData data;
-}HeapElem;
 
 typedef struct _heapElem
 {
@@ -34,3 +29,4 @@ void HInsert(Heap *ph,HData data, Priority pr);
 HData HDelete(Heap *ph);
 
 #endif
+

@@ -66,4 +66,29 @@ void HInsert(Heap *ph,HData data, Priority pr)
 	ph->numOfData+=1;
 }
 	
-HData HDelete(Heap *ph);
+HData HDelete(Heap *ph)	// delete the root node and put the last node in the root node position and compare
+{	
+	HData Rdata=ph->heapArr[1].data;
+	HeapElem lastElem=ph->heapArr[ph->numOfData];
+
+	int parentIdx=1;
+	int childIdx;
+
+	while(childIdx=GetHiPriChildIDX(ph,parentIdx))
+	{
+
+		if(ph->heapArr[childIdx].pr<lastElem.pr)		//if last element(parent node) has a lower priority than child node
+		{
+			ph->heapArr[parentIdx]=ph->heapArr[childIdx];//move child node to parent node
+			parentIdx=childIdx;	//change last node's target Idx to child node idx
+		}
+
+		else	//if last element has a higher priority or same priority break
+			break;
+	}
+
+	ph->heapArr[parentIdx]=lastElem;
+	ph->numOfData-=1;
+
+	return Rdata;
+}

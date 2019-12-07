@@ -8,16 +8,16 @@ void MergeTwoArea(int arr[], int left, int mid, int right)
 	int rIdx=mid+1;
 	int i;
 
-	int *sortArr=(int*)malloc(sizeof(int)*sizeof(right+1));
+	int *sortArr=(int*)malloc(sizeof(int)*(right+1));
 	int sIdx=left;
 
 	while(fIdx<mid+1 && rIdx<right+1)
 	{
 		if(arr[fIdx]<arr[rIdx])
-			arr[sIdx]=arr[fIdx++];
+			sortArr[sIdx]=arr[fIdx++];
 
 		else
-			arr[sIdx]=arr[rIdx++];
+			sortArr[sIdx]=arr[rIdx++];
 
 		sIdx++;
 	}
